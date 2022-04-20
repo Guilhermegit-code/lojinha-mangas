@@ -1,4 +1,4 @@
-package br.com.otakusgroup.lojinha.core
+package br.com.otakusgroup.lojinha.core.model
 
 import java.time.LocalDateTime
 

@@ -1,6 +1,6 @@
 package br.com.otakusgroup.lojinha.core.usecase.updateuser
 
-import br.com.otakusgroup.lojinha.core.User
+import br.com.otakusgroup.lojinha.core.model.User
 import br.com.otakusgroup.lojinha.core.dto.UserDto
 
 interface IUpdateUser {

@@ -1,10 +1,10 @@
 package br.com.otakusgroup.lojinha.core
 
 import br.com.otakusgroup.lojinha.core.dto.UserDto
+import br.com.otakusgroup.lojinha.core.model.User
 import java.time.LocalDateTime
-import javax.swing.tree.RowMapper
 
-fun UserDto.toDomain(): User{
+fun UserDto.toDomain(): User {
     return  User(null, username, password, email, LocalDateTime.now(), LocalDateTime.now())
 }
 
