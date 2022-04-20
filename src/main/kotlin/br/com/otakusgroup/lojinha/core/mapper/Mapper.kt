@@ -9,6 +9,6 @@ fun UserDto.toDomain(): User {
 }
 
 fun User.toDto(): UserDto{
-    return  UserDto(username, password, email)
+    return  UserDto(username, password, email, null)
 }
 

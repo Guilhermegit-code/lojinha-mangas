@@ -31,12 +31,12 @@ class UserRepository (private val jdbcTemplate: JdbcTemplate) : IUserDao {
     override fun getUsers(): List<UserDto> {
         val sql = "select id, username, password, email from public.t_user limit 10"
         val users = jdbcTemplate.query(sql,  UserRowMapper())
-        return users.map { user -> UserDto(user.username, user.password, user.email)}
+        return users.map { user -> UserDto(user.username, user.password, user.email, null)}
     }
 
     override fun getUserById(id: Int): UserDto {
         val sql = "select id, username, password, email from public.t_user where id = ?"
-        return  jdbcTemplate.query(sql, UserRowMapper(), id).map { user -> UserDto(user.username, user.password, user.email) }.first()
+        return  jdbcTemplate.query(sql, UserRowMapper(), id).map { user -> UserDto(user.username, user.password, user.email, null) }.first()
         }
 
     override fun deleteUser(id: Int): Int {
