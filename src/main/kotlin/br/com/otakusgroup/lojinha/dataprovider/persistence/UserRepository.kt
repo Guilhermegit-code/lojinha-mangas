@@ -1,6 +1,6 @@
 package br.com.otakusgroup.lojinha.dataprovider.persistence
 
-import br.com.otakusgroup.lojinha.core.User
+import br.com.otakusgroup.lojinha.core.model.User
 import br.com.otakusgroup.lojinha.core.dto.UserDto
 import br.com.otakusgroup.lojinha.core.mapper.UserRowMapper
 import br.com.otakusgroup.lojinha.core.toDto
@@ -38,4 +38,9 @@ class UserRepository (private val jdbcTemplate: JdbcTemplate) : IUserDao {
         val sql = "select id, username, password, email from public.t_user where id = ?"
         return  jdbcTemplate.query(sql, UserRowMapper(), id).map { user -> UserDto(user.username, user.password, user.email) }.first()
         }
+
+    override fun deleteUser(id: Int): Int {
+        val sql = "delete from public.t_user where id = ?"
+        return jdbcTemplate.update(sql, id)
+    }
 }

@@ -1,8 +1,6 @@
 package br.com.otakusgroup.lojinha.core.mapper
 
-import br.com.otakusgroup.lojinha.core.User
-import br.com.otakusgroup.lojinha.core.dto.UserDto
-import br.com.otakusgroup.lojinha.core.toDto
+import br.com.otakusgroup.lojinha.core.model.User
 import org.springframework.jdbc.core.RowMapper
 import java.sql.ResultSet
 

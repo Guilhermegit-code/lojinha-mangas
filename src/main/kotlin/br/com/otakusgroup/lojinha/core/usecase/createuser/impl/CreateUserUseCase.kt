@@ -1,6 +1,6 @@
 package br.com.otakusgroup.lojinha.core.usecase.createuser.impl
 
-import br.com.otakusgroup.lojinha.core.User
+import br.com.otakusgroup.lojinha.core.model.User
 import br.com.otakusgroup.lojinha.core.dto.UserDto
 import br.com.otakusgroup.lojinha.core.toDto
 import br.com.otakusgroup.lojinha.core.usecase.createuser.ICreateUser
@@ -18,7 +18,7 @@ class CreateUserUseCase(private val IUserDao: IUserDao) : ICreateUser {
         return result.toDto()
     }
 
-    private fun verify(user: User): User{
+    private fun verify(user: User): User {
         if(user.id == null){
             print("gerando id")
             return user

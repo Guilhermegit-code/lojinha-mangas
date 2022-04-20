@@ -1,10 +1,13 @@
 package br.com.otakusgroup.lojinha.entrypoint.controller
 
+import br.com.otakusgroup.lojinha.core.dto.ResponseDto
 import br.com.otakusgroup.lojinha.core.dto.UserDto
 import br.com.otakusgroup.lojinha.core.toDomain
 import br.com.otakusgroup.lojinha.core.usecase.createuser.ICreateUser
+import br.com.otakusgroup.lojinha.core.usecase.deleteuser.IDeleteUser
 import br.com.otakusgroup.lojinha.core.usecase.getuser.IGetUsers
 import br.com.otakusgroup.lojinha.core.usecase.updateuser.IUpdateUser
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController
 class UserControllerImpl(private val createUserPort: ICreateUser,
                          private val updateUserPort: IUpdateUser,
                          private val getUserPort: IGetUsers,
+                         private val deleteUserPort: IDeleteUser
 ) : IUserController {
 
 
@@ -40,6 +44,10 @@ class UserControllerImpl(private val createUserPort: ICreateUser,
     @GetMapping("{id}")
     override fun getUserById(@PathVariable id: Int): UserDto {
       return  getUserPort.getUsersById(id)
+    }
+    @DeleteMapping("{id}")
+    override fun deleteUser(@PathVariable id: Int): ResponseDto {
+        return deleteUserPort.deleteUser(id)
     }
 
 
