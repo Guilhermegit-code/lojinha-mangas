@@ -10,4 +10,8 @@ class GetUsersUseCase(private val IUserDao: IUserDao) : IGetUsers {
        return IUserDao.getUsers()
     }
 
+    override fun getUsersById(id: Int): UserDto {
+       return  IUserDao.getUserById(id)
+    }
+
 }

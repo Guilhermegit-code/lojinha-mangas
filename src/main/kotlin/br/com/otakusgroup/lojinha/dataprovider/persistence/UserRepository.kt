@@ -33,4 +33,9 @@ class UserRepository (private val jdbcTemplate: JdbcTemplate) : IUserDao {
         val users = jdbcTemplate.query(sql,  UserRowMapper())
         return users.map { user -> UserDto(user.username, user.password, user.email)}
     }
+
+    override fun getUserById(id: Int): UserDto {
+        val sql = "select id, username, password, email from public.t_user where id = ?"
+        return  jdbcTemplate.query(sql, UserRowMapper(), id).map { user -> UserDto(user.username, user.password, user.email) }.first()
+        }
 }
