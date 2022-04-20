@@ -2,12 +2,12 @@ package br.com.otakusgroup.lojinha.core.usecase.updateuser
 
 import br.com.otakusgroup.lojinha.core.User
 import br.com.otakusgroup.lojinha.core.dto.UserDto
-import br.com.otakusgroup.lojinha.dataprovider.persistence.UserDao
+import br.com.otakusgroup.lojinha.dataprovider.persistence.IUserDao
 import org.springframework.stereotype.Component
 
 @Component
-class UpdateUserImpl(private val userDao: UserDao) : IUpdateUser {
+class UpdateUserUseCase(private val IUserDao: IUserDao) : IUpdateUser {
     override fun updateUser(id: Int, user: User): UserDto {
-        return userDao.update(id, user)
+        return IUserDao.update(id, user)
     }
 }

@@ -2,13 +2,13 @@ package br.com.otakusgroup.lojinha.dataprovider.persistence
 
 import br.com.otakusgroup.lojinha.core.User
 import br.com.otakusgroup.lojinha.core.dto.UserDto
+import br.com.otakusgroup.lojinha.core.mapper.UserRowMapper
 import br.com.otakusgroup.lojinha.core.toDto
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.stereotype.Component
-import java.awt.GraphicsConfigTemplate
 
 @Component
-class UserRepository (private val jdbcTemplate: JdbcTemplate) : UserDao {
+class UserRepository (private val jdbcTemplate: JdbcTemplate) : IUserDao {
 
     override fun insert(user: User): Int {
         val sql = "insert into public.t_user " +
@@ -26,5 +26,11 @@ class UserRepository (private val jdbcTemplate: JdbcTemplate) : UserDao {
             throw java.lang.RuntimeException("id nao encontrado no banco")
         }
         return user.toDto()
+    }
+
+    override fun getUsers(): List<UserDto> {
+        val sql = "select id, username, password, email from public.t_user limit 10"
+        val users = jdbcTemplate.query(sql,  UserRowMapper())
+        return users.map { user -> UserDto(user.username, user.password, user.email)}
     }
 }

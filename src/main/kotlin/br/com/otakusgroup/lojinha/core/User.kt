@@ -7,6 +7,6 @@ data class User (
     val username: String,
     val password: String,
     val email: String,
-    val created_at: LocalDateTime,
-    val modified_at: LocalDateTime
+    val created_at: LocalDateTime?,
+    val modified_at: LocalDateTime?
         )
