@@ -5,4 +5,5 @@ import org.apache.catalina.User
 
 interface IGetUsers {
     fun getUsers(): List<UserDto>
+    fun getUsersById(id: Int): UserDto
 }

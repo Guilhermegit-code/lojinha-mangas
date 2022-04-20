@@ -7,4 +7,5 @@ interface IUserDao {
     fun insert(user: User): Int
     fun update(id: Int, user: User) : UserDto
     fun getUsers(): List<UserDto>
+    fun getUserById(id: Int): UserDto
 }

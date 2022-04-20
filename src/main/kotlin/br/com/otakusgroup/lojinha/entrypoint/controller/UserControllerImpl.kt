@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("user")
 class UserControllerImpl(private val createUserPort: ICreateUser,
                          private val updateUserPort: IUpdateUser,
-                         private val getUserPort: IGetUsers
+                         private val getUserPort: IGetUsers,
 ) : IUserController {
 
 
@@ -37,9 +37,9 @@ class UserControllerImpl(private val createUserPort: ICreateUser,
       return  getUserPort.getUsers()
     }
 
-
-    override fun getUserById(id: Int): UserDto {
-        TODO("Not yet implemented")
+    @GetMapping("{id}")
+    override fun getUserById(@PathVariable id: Int): UserDto {
+      return  getUserPort.getUsersById(id)
     }
 
 
