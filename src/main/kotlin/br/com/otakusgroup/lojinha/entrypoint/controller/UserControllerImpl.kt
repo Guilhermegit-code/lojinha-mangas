@@ -2,11 +2,11 @@ package br.com.otakusgroup.lojinha.entrypoint.controller
 
 import br.com.otakusgroup.lojinha.core.dto.ResponseDto
 import br.com.otakusgroup.lojinha.core.dto.UserDto
-import br.com.otakusgroup.lojinha.core.toDomain
-import br.com.otakusgroup.lojinha.core.usecase.createuser.ICreateUser
-import br.com.otakusgroup.lojinha.core.usecase.deleteuser.IDeleteUser
-import br.com.otakusgroup.lojinha.core.usecase.getuser.IGetUsers
-import br.com.otakusgroup.lojinha.core.usecase.updateuser.IUpdateUser
+import br.com.otakusgroup.lojinha.core.mapper.toDomain
+import br.com.otakusgroup.lojinha.core.usecase.user.createuser.ICreateUser
+import br.com.otakusgroup.lojinha.core.usecase.user.deleteuser.IDeleteUser
+import br.com.otakusgroup.lojinha.core.usecase.user.getuser.IGetUsers
+import br.com.otakusgroup.lojinha.core.usecase.user.updateuser.IUpdateUser
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable

@@ -1,7 +1,7 @@
 package br.com.otakusgroup.lojinha.core.dto
 
 data class UserDto (
-    val username: String,
-    val password: String,
-    val email: String
+    var username: String,
+    var password: String ,
+    var email: String
     )

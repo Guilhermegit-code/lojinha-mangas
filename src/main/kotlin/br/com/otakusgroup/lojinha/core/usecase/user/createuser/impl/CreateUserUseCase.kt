@@ -1,9 +1,9 @@
-package br.com.otakusgroup.lojinha.core.usecase.createuser.impl
+package br.com.otakusgroup.lojinha.core.usecase.user.createuser.impl
 
 import br.com.otakusgroup.lojinha.core.model.User
 import br.com.otakusgroup.lojinha.core.dto.UserDto
-import br.com.otakusgroup.lojinha.core.toDto
-import br.com.otakusgroup.lojinha.core.usecase.createuser.ICreateUser
+import br.com.otakusgroup.lojinha.core.mapper.toDto
+import br.com.otakusgroup.lojinha.core.usecase.user.createuser.ICreateUser
 import br.com.otakusgroup.lojinha.dataprovider.persistence.IUserDao
 import org.springframework.stereotype.Component
 
