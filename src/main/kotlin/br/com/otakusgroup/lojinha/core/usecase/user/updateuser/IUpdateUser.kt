@@ -1,4 +1,4 @@
-package br.com.otakusgroup.lojinha.core.usecase.updateuser
+package br.com.otakusgroup.lojinha.core.usecase.user.updateuser
 
 import br.com.otakusgroup.lojinha.core.model.User
 import br.com.otakusgroup.lojinha.core.dto.UserDto
