@@ -1,7 +1,25 @@
 package br.com.otakusgroup.lojinha.core.dto
 
 data class UserDto (
-    var username: String,
-    var password: String ,
-    var email: String
+
+    val username: String,
+    val password: String,
+    val email: String,
+    val error: Set<String>?
     )
+{
+    companion object {
+        fun withError(error: Set<String>): UserDto{
+            return UserDto(
+                "",
+                "",
+                "",
+                error
+
+            )
+        }
+
+
+    }
+}
+

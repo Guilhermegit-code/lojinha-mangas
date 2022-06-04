@@ -2,11 +2,12 @@ package br.com.otakusgroup.lojinha.entrypoint.controller
 
 import br.com.otakusgroup.lojinha.core.dto.ResponseDto
 import br.com.otakusgroup.lojinha.core.dto.UserDto
-import br.com.otakusgroup.lojinha.core.mapper.toDomain
-import br.com.otakusgroup.lojinha.core.usecase.user.createuser.ICreateUser
-import br.com.otakusgroup.lojinha.core.usecase.user.deleteuser.IDeleteUser
-import br.com.otakusgroup.lojinha.core.usecase.user.getuser.IGetUsers
-import br.com.otakusgroup.lojinha.core.usecase.user.updateuser.IUpdateUser
+import br.com.otakusgroup.lojinha.core.toDomain
+import br.com.otakusgroup.lojinha.core.usecase.createuser.ICreateUser
+import br.com.otakusgroup.lojinha.core.usecase.deleteuser.IDeleteUser
+import br.com.otakusgroup.lojinha.core.usecase.getuser.IGetUsers
+import br.com.otakusgroup.lojinha.core.usecase.updateuser.IUpdateUser
+import br.com.otakusgroup.lojinha.entrypoint.controller.validation.validate
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -28,7 +29,7 @@ class UserControllerImpl(private val createUserPort: ICreateUser,
 
     @PostMapping("/create")
         override fun insertUser(@RequestBody userDto: UserDto): UserDto {
-            return  createUserPort.createUser(userDto.toDomain())
+          return  verifyAndExecute(userDto)
         }
 
     @PutMapping("{id}")
@@ -48,6 +49,15 @@ class UserControllerImpl(private val createUserPort: ICreateUser,
     @DeleteMapping("{id}")
     override fun deleteUser(@PathVariable id: Int): ResponseDto {
         return deleteUserPort.deleteUser(id)
+    }
+
+    private fun verifyAndExecute( userDto: UserDto): UserDto {
+        userDto.validate().let { error ->
+           return if (error.isNotEmpty())
+                UserDto.withError(error)
+            else
+                createUserPort.createUser(userDto.toDomain())
+        }
     }
 
 
