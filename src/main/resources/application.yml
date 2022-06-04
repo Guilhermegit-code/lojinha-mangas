@@ -1,0 +1,6 @@
+app:
+  db:
+    driver-class-name: org.postgresql.Driver
+    jdbc-url: jdbc:postgresql://localhost:5432/lojinha_db
+    username: mangaka
+    password: onepiece

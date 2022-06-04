@@ -3,7 +3,7 @@ package br.com.otakusgroup.lojinha.dataprovider.persistence
 import br.com.otakusgroup.lojinha.core.model.User
 import br.com.otakusgroup.lojinha.core.dto.UserDto
 import br.com.otakusgroup.lojinha.core.mapper.UserRowMapper
-import br.com.otakusgroup.lojinha.core.toDto
+import br.com.otakusgroup.lojinha.core.mapper.toDto
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.stereotype.Component
 

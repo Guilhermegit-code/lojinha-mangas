@@ -1,4 +1,4 @@
-package br.com.otakusgroup.lojinha.core.usecase.deleteuser
+package br.com.otakusgroup.lojinha.core.usecase.user.deleteuser
 
 import br.com.otakusgroup.lojinha.core.dto.ResponseDto
 

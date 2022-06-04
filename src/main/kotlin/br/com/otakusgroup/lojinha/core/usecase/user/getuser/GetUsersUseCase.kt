@@ -1,4 +1,4 @@
-package br.com.otakusgroup.lojinha.core.usecase.getuser
+package br.com.otakusgroup.lojinha.core.usecase.user.getuser
 
 import br.com.otakusgroup.lojinha.core.dto.UserDto
 import br.com.otakusgroup.lojinha.dataprovider.persistence.IUserDao

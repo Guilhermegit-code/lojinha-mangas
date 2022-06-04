@@ -2,7 +2,7 @@ package br.com.otakusgroup.lojinha.core.model
 
 import java.time.LocalDateTime
 
-data class User (
+open  class User (
     val id: Int?,
     val username: String,
     val password: String,
